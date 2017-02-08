@@ -57,5 +57,32 @@ window.onload = function() {
 	function degreesToRadians(degrees) {
 		return (degrees * Math.PI / 180);
 	}
+
+	function updateTweets(tweets) {
+		var tweetSelection = document.getElementById("tweets");
+		console.log(tweets);
+		/*  ---> must be an update to twitter api because this isn't working
+		for (var i = 0; i < tweets.length; i++) {
+			tweet = tweets[i];
+			var option = document.createElement("option");
+			option.text = tweet.text;
+			option.value = tweet.text.replace("\"", "'");
+			tweetSelection.options.add(option);
+		}
+		*/
+		var option = document.createElement("option");
+		option.text = tweets[0];
+		tweetSelection.options.add(option);
+
+		var option2 = document.createElement("option");
+		option2.text = tweets[1];
+		tweetSelection.options.add(option2);
+
+		tweetSelection.selectedIndex = 0;
+	}
+	var tweets = ["Hey first tweet.  Hi twitter", "Second tweet.  I'm starting to get the hang of this."];
+	updateTweets(tweets);
+
 }
+
 
