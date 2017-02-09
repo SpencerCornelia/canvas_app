@@ -20,6 +20,8 @@ window.onload = function() {
 				drawCircle(canvas, context);
 			}
 		}
+
+		drawText(canvas, context);
 	}
 
 	function drawSquare(canvas, context) {
@@ -82,6 +84,27 @@ window.onload = function() {
 	}
 	var tweets = ["Hey first tweet.  Hi twitter", "Second tweet.  I'm starting to get the hang of this."];
 	updateTweets(tweets);
+
+	function drawText(canvas, context) {
+		var selectObj = document.getElementById("foregroundColor");
+		var index = selectObj.selectedIndex;
+		var fgColor = selectObj[index].value;
+
+		context.fillStyle = fgColor;
+		context.font = "bold 1em sans-serif";
+		context.textAlign = "left";
+		context.fillText("I saw this tweet", 20, 40);
+
+		var tweetObj = document.getElementById("tweets");
+		var tweetIndex = tweetObj.selectedIndex;
+		var tweet = tweetObj[tweetIndex].value;
+		context.font = "italic 1.2em serif";
+		context.fillText(tweet, 30, 100);
+
+		context.font = "bold 1em sans-serif";
+		context.textAlign = "right";
+		context.fillText("and all I got was this lousy t-shirt!", canvas.width - 20, canvas.height - 40);
+	}
 
 }
 
